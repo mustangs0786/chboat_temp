@@ -14,6 +14,7 @@ if "messages" not in st.session_state:
 with st.sidebar:
     st.header("⚙️ Configuration")
     api_key = st.text_input("Gemini API Key", type="password", placeholder="Enter your Gemini API key")
+    model_choice = st.selectbox("Model", ["gemini-flash-latest", "gemini-pro-latest"], index=0)
     thinking_level = st.selectbox("Thinking Level", ["HIGH", "MEDIUM", "LOW"], index=0)
     if st.button("🗑️ Clear Chat"):
         st.session_state.messages = []
@@ -58,7 +59,7 @@ if prompt := st.chat_input("Type your message..."):
             full_response = ""
 
             for chunk in client.models.generate_content_stream(
-                model="gemini-2.5-pro-latest",
+                model=model_choice,
                 contents=contents,
                 config=config,
             ):
