@@ -9,7 +9,7 @@ st.title("🤖 Gemini Chatbot")
 # Initialize chat history in session state
 if "messages" not in st.session_state:
     st.session_state.messages = []
-st.text(AIzaSyAUlQXOs4PTe_whSs9FwoDh6K0qOBTRpSY)
+st.text('AIzaSyAUlQXOs4PTe_whSs9FwoDh6K0qOBTRpSY')
 # Sidebar for API key input
 with st.sidebar:
     st.header("⚙️ Configuration")
